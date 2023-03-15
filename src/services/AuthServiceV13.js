@@ -1,3 +1,5 @@
+// creamos un store con el auth service del v12 y v13 -> v18
+
 // para conectar al servidor   
 // https://hfp69ilv.directus.app/auth/login  
 //  email: testuser@gogodev.net  

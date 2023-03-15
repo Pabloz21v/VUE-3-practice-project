@@ -1,15 +1,64 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+// V9
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
+// v10
+// npm install vue-router
 import router from './router'
+// V18
+// npm install vuex para usar store
+import store from './store'
+//V 19
+// npm i pinia para usar pinia
+import { createPinia }from 'pinia'
+// V20
+// npm install vue-cookies
+import VueCookies from 'vue-cookies'
+// V20
+// npm i vue-session
+// https://www.npmjs.com/package/vue-session
+// import VueSession from 'vue-session'
 
 import './assets/main.css'
 // de esta forma estaba originalmente
 // createApp(App).mount('#app')
 
-// modificado para las directivas personalizadas simples  agregado el router
-const app = createApp(App).use(router)
+// creo constantes para trabajar con Pinia
+const pinia = createPinia()
+
+// modificado para las directivas personalizadas simples agregado el routerV10,storeV19, cookiesV20, session V20
+// en el .use(VueCookies,{expires: '1d'}) se puede agregar mas valores en este ejemplo se pone que expiran las cookies en 1d
+// https://youtu.be/tKO_if4M8XA?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=535
+// para .use(VueSession)
+// https://youtu.be/tKO_if4M8XA?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=1359
+const app = createApp(App).use(store).use(router).use(VueCookies,{expires: '1d'})
+
+// por algun motivo app.use(VueSession)falla y no carga nada del contenido
+// app.use(VueSession)
+// COOKIES
+// para configurar el cookie
+//$cookies.set('auth',1000, expires,path,domain,secure,sameSite)
+//para recuperar
+// $cookies.get('auth')
+// eliminar
+// $cookies.remove('auth')
+// si existe una cookie
+// $cookies.isKey('auth')
+// para obtener todas las cookies
+// $cookies.keys()
+
+//SESSION
+// $session.start()
+// $session.set('auth',1000)
+// recuperar info de una session
+// $session.get('auth')
+// saber el id de la session en uso
+// $session.id()
+//renovar una sesion
+// $session.renew()
+// eliminar
+// $session.destroy()
 
 app.directive('font-size',{
     // https://youtu.be/8bUqKjDnBwY?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=1080
@@ -76,5 +125,7 @@ app.directive('custom-font',{
     }
 })
 
-app.mount('#app')
+
+// se agrega .use(pinia) para darle uso
+app.use(pinia).mount('#app')
 

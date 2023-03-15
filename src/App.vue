@@ -23,6 +23,9 @@
     // import PostListV8 from './view/PostListV8.vue'
     import EstilosV9 from './components/estilos-V9/EstilosV9.vue'
     import EnrutadoV10 from './components/Enrutado-V10/EnrutadoV10.vue'
+    import ContadorV18 from './components/vuex-18/ContadorV18.vue'
+    import ContadorPiniaV19 from './components/pinia-V19/ContadorPiniaV19.vue'
+    import PeticionesV21 from './components/peticiones-autenticadas-V21/Peticiones-V21.vue'
 </script>
 
 <template>
@@ -82,19 +85,32 @@
         <br>
         <EnrutadoV10 />
         <br>
+        <ContadorV18 />
+        <br>
+        <ContadorPiniaV19 />
+        <br>
+        <h1>Se configura sessions y cookies V20</h1>
         <!-- <PostListV8/>  -->
         <!-- se crea un servio V8 con una solicitus async await a un JSON -->
         <!-- src\services\PostService.js -->
+        <br>
+        <PeticionesV21 />
+        <br>
+        <br>
         <h3>
-            <RouterLink to="/post">PostListV8</RouterLink>
+            <RouterLink to="/post">PostList V8</RouterLink>
         </h3>
         <br>
         <h3>
-            <RouterLink to="/auth">AuthViewV12</RouterLink>
+            <RouterLink to="/auth">AuthView V12 y V13</RouterLink>
         </h3>
         <br>
         <h3>
-
+            <RouterLink to="/login">Login V21</RouterLink>
+        </h3>
+        <br>
+        <h3>
+            <RouterLink to="/dashboard">Dashboard V21</RouterLink>
         </h3>
         <br>
         <RouterView />
