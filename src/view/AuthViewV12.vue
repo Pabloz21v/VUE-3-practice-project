@@ -2,6 +2,8 @@
     <h1>Auth View V12 y V13</h1>
     <h3>Se loguea a un servidor y responde deacuerdo a si es true o false la coneccion</h3>
     <h3>Esto se realiza en AuthServiceV13 en services y AuthViewV12 en view</h3>
+    <h3>se agrega un ejemplo de cookie V20</h3>
+    <!-- https://youtu.be/tKO_if4M8XA?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=894 -->
     <form>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -35,6 +37,7 @@
         const auth = new AuthServiceV13()
         const success = await auth.login(email.value, password.value)
         if(success) {
+            // $cookies.set('auth', success.access_token)
             alert ('Exito!')
         } else {
             alert ('Login incorrecto')
@@ -42,7 +45,12 @@
 
     }
 
-    
+    // COOKIES
+    // const takeInfoFromUser = () =>{
+    //     const token = $cookies.get('auth')}
+    // SESSIOn
+    // const getUserInfo = (){
+    //     const = $session.get('auth')}
 </script>
 
 <style scoped>
