@@ -108,11 +108,23 @@
         <h3>
             <RouterLink to="/login">Login V21</RouterLink>
         </h3>
-        <br>
         <h3>
             <RouterLink to="/dashboard">Dashboard V21</RouterLink>
         </h3>
         <br>
+        <h3>
+            <RouterLink to="/login-v23">login-v23</RouterLink>
+        </h3>
+        <h3>
+            <RouterLink to="/register-v23">register-v23</RouterLink>
+        </h3>
+        <h3>
+            <RouterLink to="/note-list-v23">note-list-v23</RouterLink>
+        </h3>
+        <h3>
+            <RouterLink to="/note-create-v23">note-create-v23</RouterLink>
+        </h3>
+        
         <RouterView />
     </main>
 </template>

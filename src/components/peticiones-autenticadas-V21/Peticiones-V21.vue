@@ -1,6 +1,6 @@
 <template>
     <h1>Peticiones Autenticadas y proteccion de rutas V21</h1>
-    <input  type="text" v-model="note">
+    <!-- <input  type="text" v-model="note"> -->
     <button @click="sendToServer" class="btn btn-primary">Envir nota al servidor</button>
 </template>
 

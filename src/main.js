@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 // V9
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap"
+// npm install bootstrap
+// npm install @popperjs/core
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap'
 // v10
 // npm install vue-router
 import router from './router'
@@ -32,7 +34,7 @@ const pinia = createPinia()
 // https://youtu.be/tKO_if4M8XA?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=535
 // para .use(VueSession)
 // https://youtu.be/tKO_if4M8XA?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=1359
-const app = createApp(App).use(store).use(router).use(VueCookies,{expires: '1d'})
+const app = createApp(App).use(store).use(pinia).use(router).use(VueCookies,{expires: '1d'})
 
 // por algun motivo app.use(VueSession)falla y no carga nada del contenido
 // app.use(VueSession)
@@ -127,5 +129,5 @@ app.directive('custom-font',{
 
 
 // se agrega .use(pinia) para darle uso
-app.use(pinia).mount('#app')
+app.mount('#app')
 
