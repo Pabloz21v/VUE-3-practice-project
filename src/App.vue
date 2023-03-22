@@ -26,6 +26,23 @@
     import ContadorV18 from './components/vuex-18/ContadorV18.vue'
     import ContadorPiniaV19 from './components/pinia-V19/ContadorPiniaV19.vue'
     import PeticionesV21 from './components/peticiones-autenticadas-V21/Peticiones-V21.vue'
+    import MainLayoutV24 from './layouts/MainLayoutV24.vue'
+    import EjecucionDeclarativaV25View from './view/EjecucionDeclarativaV25View.vue'
+    import PersistenciaViewV27 from './view/PersistenciaViewV27.vue'
+    import WatchViewV27 from './view/WatchViewV27.vue'
+
+    import {
+        //  este import correspondiente a MainLayoutV24
+        useMouse
+    } from './composables/useMouseV24'
+    import ParentComponentV28 from './components/controlDelegado-V28/ParentComponentV28.vue'
+import LazyLoadV28 from './components/lazyLoad-V28/LazyLoadV28.vue'
+
+
+    const {
+        x,
+        y
+    } = useMouse();
 </script>
 
 <template>
@@ -113,19 +130,42 @@
         </h3>
         <br>
         <h3>
-            <RouterLink to="/login-v23">login-v23</RouterLink>
+            <RouterLink to="/login-v23">Login-v23</RouterLink>
         </h3>
         <h3>
-            <RouterLink to="/register-v23">register-v23</RouterLink>
+            <RouterLink to="/register-v23">Register-v23</RouterLink>
         </h3>
         <h3>
-            <RouterLink to="/note-list-v23">note-list-v23</RouterLink>
+            <RouterLink to="/note-list-v23">Note-list-v23</RouterLink>
         </h3>
         <h3>
-            <RouterLink to="/note-create-v23">note-create-v23</RouterLink>
+            <RouterLink to="/note-create-v23">Note-create-v23</RouterLink>
         </h3>
-        
+        <br>
+        <MainLayoutV24>
+            // composables
+            // https://youtu.be/x996MvWwvlE?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=2033
+            <template #main>
+                <h5>main content</h5>
+            </template>
+            <template #aux>
+
+                <h5>X position is:{{ x }}, Y position is: {{ y }}</h5>
+            </template>
+        </MainLayoutV24>
+        <br>
+        <EjecucionDeclarativaV25View />
+        <br>
+        <PersistenciaViewV27 />
+        <br>
+        <WatchViewV27 />
+        <br>
+        <ParentComponentV28 />
+        <br>
+        <LazyLoadV28/>
+        <br>
         <RouterView />
+
     </main>
 </template>
 

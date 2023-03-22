@@ -26,15 +26,27 @@ import './assets/main.css'
 // de esta forma estaba originalmente
 // createApp(App).mount('#app')
 
+// para la persistencia de los states/store V27
+// npm i pinia-plugin-persistedstate
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
+//intalacion de vue3-lazyload (carga peresosa) pluggin V28
+//https://www.npmjs.com/package/vue3-lazyload
+//npm i vue3-lazyload
+import VueLazyLoad from 'vue3-lazyload'
+// y agrego el .use(VueLazyLoad) a la constante const app
+
 // creo constantes para trabajar con Pinia
 const pinia = createPinia()
 
+// V27
+pinia.use(piniaPluginPersistedstate)
 // modificado para las directivas personalizadas simples agregado el routerV10,storeV19, cookiesV20, session V20
 // en el .use(VueCookies,{expires: '1d'}) se puede agregar mas valores en este ejemplo se pone que expiran las cookies en 1d
 // https://youtu.be/tKO_if4M8XA?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=535
 // para .use(VueSession)
 // https://youtu.be/tKO_if4M8XA?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=1359
-const app = createApp(App).use(store).use(pinia).use(router).use(VueCookies,{expires: '1d'})
+const app = createApp(App).use(store).use(VueLazyLoad).use(pinia).use(router).use(VueCookies,{expires: '1d'})
 
 // por algun motivo app.use(VueSession)falla y no carga nada del contenido
 // app.use(VueSession)
