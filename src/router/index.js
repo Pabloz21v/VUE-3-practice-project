@@ -9,15 +9,34 @@ import NoteCreateViewV23 from '../view/NoteCreateViewV23.vue'
 import NoteListViewV23 from '../view/NoteListViewV23.vue'
 import RegisterViewV23 from '../view/RegisterViewV23.vue'
 import useAuthV23 from '../store/authV23'
+import ServicesV24 from '../view/ServicesV24.vue'
+import ContactV24 from '../view/ContactV24.vue'
 
 const router = createRouter({
 history: createWebHistory(import.meta.env.BASE_URL),
 routes: [
+//REDIRECT
 // forma para redireccionar rutas, en el name poner el name del componente a donde quiero redireccionar
 // ejemplo al ir a la ruta inicial, te manda a la ruta /post
 // {
 // path: '/',
 // redirect: {name: 'PostListV8'}
+{
+path: '/services-v24',
+name: 'Services-v24',
+component: ServicesV24,
+meta: {
+requireAuth: false
+}
+},
+{
+path: '/contact-v24',
+name: 'Contact-v24',
+component: ContactV24,
+meta: {
+requireAuth: false
+}
+},
 {
 path: '/login',
 name: 'LoginView',
@@ -114,14 +133,13 @@ requireAuth: false
 //V23 configuracion para acceder con una base de datos y un servidor activos
 // https://youtu.be/TqfrKULUuYY?list=PLDllzmccetSNgykILXnHMeuO-y-gRcF-i&t=2615
 router.beforeEach((to,from,next)=> {
-    const authV23 = useAuthV23()
-    const isAuthV23 = authV23.token
-    if((to.meta.requireAuth) && (isAuthV23 == null)){
-        next('login-v23')
-        } else {
-        next()
-        }
+const authV23 = useAuthV23()
+const isAuthV23 = authV23.token
+if((to.meta.requireAuth) && (isAuthV23 == null)){
+next('login-v23')
+} else {
+next()
+}
 })
 
 export default router
-
